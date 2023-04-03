@@ -38,7 +38,7 @@ export default {
         HeaderVue
     },
     created() {
-        let apiURL = 'https://3a2c-2403-6200-8851-4547-d8bd-ad0e-a73d-43f2.ngrok.io/api/get-menu/'+this.$route.params.id
+        let apiURL = 'https://talented-khakis-boa.cyclic.app/api/get-menu/'+this.$route.params.id
         axios.get(apiURL)
         .then((res) => {
             this.menus = res.data
@@ -47,7 +47,7 @@ export default {
     },
     methods: {
         async UpdateMenu() {
-            let apiURL = 'https://3a2c-2403-6200-8851-4547-d8bd-ad0e-a73d-43f2.ngrok.io/api/update-menu/'+this.$route.params.id
+            let apiURL = 'https://talented-khakis-boa.cyclic.app/api/update-menu/'+this.$route.params.id
             await axios.put(apiURL, this.menus)
             .then((res) => {
                 if(res.status === 200) this.$router.push({path: '/menu-thai'})

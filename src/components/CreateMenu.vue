@@ -40,7 +40,7 @@ export default {
     },
     methods:{
         SubmitForm() {
-            let apiURL = "https://3a2c-2403-6200-8851-4547-d8bd-ad0e-a73d-43f2.ngrok.io/api/create-menu"
+            let apiURL = "https://talented-khakis-boa.cyclic.app/api/create-menu"
             axios.post(apiURL, this.menus).then(() => {
                 this.menus = {
                     name:'',

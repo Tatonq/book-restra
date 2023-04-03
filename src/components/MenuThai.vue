@@ -41,7 +41,7 @@ export default {
         }
     },
     created(){
-        axios.get('https://3a2c-2403-6200-8851-4547-d8bd-ad0e-a73d-43f2.ngrok.io/api/menus')
+        axios.get('https://talented-khakis-boa.cyclic.app/api/menus')
         .then((res) => {
             console.log(res);
             this.MenuList = res.data
