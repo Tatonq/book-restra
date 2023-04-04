@@ -20,7 +20,7 @@
             <td>
                 <router-link :to="{name: 'EditMenu', params: { id: data._id }}" class="btn btn-success ">แก้ไข</router-link>
                 <!-- <button @click="this.$router.push({ name: 'EditMenu', params: { id: data._id } })" class="btn btn-success ">แก้ไข</button> -->
-                <button class="btn btn-danger">ลบ</button>
+                <button @click="deleteMenu(data._id)" class="btn btn-danger">ลบ</button>
             </td>
             </tr>
         </tbody>
@@ -48,6 +48,20 @@ export default {
         }).catch(err => {
             console.log(err );
         })
+    },
+    methods:{
+        async deleteMenu(id) {
+            let apiURL = 'https://talented-khakis-boa.cyclic.app/api/delete-menu/'
+            let indexOfArray = this.MenuList.findIndex(i => i._id === id)
+            if(window.confirm('ต้องการลบไหม?')) {
+                await axios.delete(apiURL+id)
+                .then((res)=>{
+                    console.log(res);
+                    this.MenuList.splice(indexOfArray, 1)
+                })
+                .catch(err => console.log(err))
+            }
+        }
     }
 
 }
