@@ -1,4 +1,4 @@
 export default {
-    loaclhost: 'http://localhost:5500',
-    webserver: 'https://talented-khakis-boa.cyclic.app'
+    localhost: 'https://talented-khakis-boa.cyclic.app',
+    webserver: 'http://localhost:5500'
 }

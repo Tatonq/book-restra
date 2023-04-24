@@ -42,6 +42,7 @@ export default {
     methods:{
         SubmitForm() {
             let apiURL = `${api.webserver}/api/create-menu`
+            // let apiURL = api.webserver+'/api/create-menu'
             axios.post(apiURL, this.menus).then(() => {
                 this.menus = {
                     name:'',

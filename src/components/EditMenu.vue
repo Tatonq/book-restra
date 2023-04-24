@@ -39,7 +39,8 @@ export default {
         HeaderVue
     },
     created() {
-        let apiURL = `${api.webserver}/api/get-menu/${this.$route.params.id}`
+        // let apiURL = `${api.webserver}/api/get-menu/${this.$route.params.id}`
+        let apiURL = api.webserver+'/api/get-menu/'+this.$route.params.id
         axios.get(apiURL)
         .then((res) => {
             this.menus = res.data
@@ -48,7 +49,8 @@ export default {
     },
     methods: {
         async UpdateMenu() {
-            let apiURL = `${api.webserver}/api/update-menu/${this.$route.params.id}`
+            // let apiURL = `${api.webserver}/api/update-menu/${this.$route.params.id}`
+            let apiURL = api.webserver+'/api/update-menu/'+this.$route.params.id
             await axios.put(apiURL, this.menus)
             .then((res) => {
                 if(res.status === 200) this.$router.push({path: '/menu-thai'})

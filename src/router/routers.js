@@ -4,6 +4,8 @@ import MenuThai from '../components/MenuThai'
 import MenuJP from '../components/MenuJP'
 import CreateMenu from '../components/CreateMenu'
 import EditMenu from '../components/EditMenu'
+import Login from '../components/LoginPage'
+import SingUp from '../components/SingUp'
 const routes = [
     {
         name: 'HomePage',
@@ -29,6 +31,16 @@ const routes = [
         name: 'EditMenu',
         component: EditMenu,
         path: '/edit-menu/:id'
+    },
+    {
+        name: 'LoginPage',
+        component: Login,
+        path: '/login-page'
+    },
+    {
+        name: 'SingUp',
+        component: SingUp,
+        path: '/sing-up'
     },
 ]
 

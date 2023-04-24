@@ -42,7 +42,7 @@ export default {
         }
     },
     created(){
-        axios.get(`${api.webserver}/api/menus`)
+        axios.get(api.webserver+`/api/menus`)
         .then((res) => {
             console.log(res);
             this.MenuList = res.data
@@ -52,7 +52,7 @@ export default {
     },
     methods:{
         async deleteMenu(id) {
-            let apiURL = `${api.webserver}/api/delete-menu/`
+            let apiURL = api.webserver+`/api/delete-menu/`
             let indexOfArray = this.MenuList.findIndex(i => i._id === id)
             if(window.confirm('ต้องการลบไหม?')) {
                 await axios.delete(apiURL+id)
