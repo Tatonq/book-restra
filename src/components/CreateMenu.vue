@@ -26,6 +26,7 @@
 
 <script>
 import HeaderVue from './Header.vue'
+import api from '../service/env'
 import axios from 'axios'
 export default {
     name:'CreateMenu',
@@ -40,7 +41,7 @@ export default {
     },
     methods:{
         SubmitForm() {
-            let apiURL = "https://talented-khakis-boa.cyclic.app/api/create-menu"
+            let apiURL = `${api.webserver}/api/create-menu`
             axios.post(apiURL, this.menus).then(() => {
                 this.menus = {
                     name:'',

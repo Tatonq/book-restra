@@ -29,6 +29,7 @@
 
 <script>
 import Header from './Header.vue'
+import api from '../service/env'
 import axios from 'axios'
 export default {
     name:'MenuThai',
@@ -41,7 +42,7 @@ export default {
         }
     },
     created(){
-        axios.get('https://talented-khakis-boa.cyclic.app/api/menus')
+        axios.get(`${api.webserver}/api/menus`)
         .then((res) => {
             console.log(res);
             this.MenuList = res.data
@@ -51,7 +52,7 @@ export default {
     },
     methods:{
         async deleteMenu(id) {
-            let apiURL = 'https://talented-khakis-boa.cyclic.app/api/delete-menu/'
+            let apiURL = `${api.webserver}/api/delete-menu/`
             let indexOfArray = this.MenuList.findIndex(i => i._id === id)
             if(window.confirm('ต้องการลบไหม?')) {
                 await axios.delete(apiURL+id)
