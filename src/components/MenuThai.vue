@@ -42,6 +42,7 @@ export default {
         }
     },
     created(){
+        this.checkIsLogged()
         axios.get(api.webserver+`/api/menus`)
         .then((res) => {
             console.log(res);
@@ -62,7 +63,12 @@ export default {
                 })
                 .catch(err => console.log(err))
             }
-        }
+        },
+        checkIsLogged() {
+            if (localStorage.getItem('token') === null) {
+                this.$router.push({path: '/login-page'})     
+            }
+        },
     }
 
 }

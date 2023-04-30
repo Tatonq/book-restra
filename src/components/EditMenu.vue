@@ -39,7 +39,7 @@ export default {
         HeaderVue
     },
     created() {
-        // let apiURL = `${api.webserver}/api/get-menu/${this.$route.params.id}`
+        this.checkIsLogged()
         let apiURL = api.webserver+'/api/get-menu/'+this.$route.params.id
         axios.get(apiURL)
         .then((res) => {
@@ -58,7 +58,12 @@ export default {
             .catch(err => {
                 console.log(err);
             })
-        }
+        },
+        checkIsLogged() {
+            if (localStorage.getItem('token') === null) {
+                this.$router.push({path: '/login-page'})     
+            }
+        },
     }
 
 }

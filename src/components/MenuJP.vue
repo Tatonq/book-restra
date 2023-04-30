@@ -33,6 +33,16 @@ export default {
         return {
             Mock
         }
+    },
+    created(){
+        this.checkIsLogged()
+    },
+    methods:{
+        checkIsLogged() {
+            if (localStorage.getItem('token') === null) {
+                this.$router.push({path: '/login-page'})     
+            }
+        },
     }
 }
 </script>

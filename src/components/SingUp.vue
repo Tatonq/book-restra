@@ -42,6 +42,9 @@ export default {
             }
         }
     },
+    created(){
+        this.checkIsLogged()
+    },
     methods:{
         SubmitForm() {
             let apiURL = `${api.webserver}/api/sing-up`
@@ -56,7 +59,12 @@ export default {
                 console.log(error);
             })
             this.$router.push({path: '/login-page'})
-        }
+        },
+        checkIsLogged() {
+            if (localStorage.getItem('token') !== null) {
+                this.$router.push({path: '/menu-thai'})
+            }
+        },
     },
 }
 </script>

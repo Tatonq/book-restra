@@ -39,6 +39,9 @@ export default {
             }
         }
     },
+    created(){
+        this.checkIsLogged()
+    },
     methods:{
         SubmitForm() {
             let apiURL = `${api.webserver}/api/create-menu`
@@ -53,7 +56,12 @@ export default {
                 console.log(error);
             })
             this.$router.push({path: '/menu-thai'})
-        }
+        },
+        checkIsLogged() {
+            if (localStorage.getItem('token') === null) {
+                this.$router.push({path: '/login-page'})     
+            }
+        },
     },
     components: {
         HeaderVue

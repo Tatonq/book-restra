@@ -10,7 +10,7 @@
               </div>
               <div class="form-group mt-3">
                   <label>รหัสผ่าน</label>
-                  <input type="text" class="form-control" v-model="userInfo.password" placeholder="รหัสผ่าน" required>
+                  <input type="password" class="form-control" id="inputPassword5" v-model="userInfo.password" placeholder="รหัสผ่าน" required>
               </div>
               <div class="field">
                   <button class="btn btn-primary">เข้าสู่ระบบ</button>
@@ -37,6 +37,9 @@ export default {
       }
     }
   },
+  created(){
+    this.checkIsLogged()
+  },
   methods:{
     SubmitForm() {
         let apiURL = `${api.webserver}/api/sing-in`
@@ -53,7 +56,12 @@ export default {
         }).catch(error => {
             console.log(error);
         })
-    }
+    },
+    checkIsLogged() {
+        if (localStorage.getItem('token') !== null) {
+            this.$router.push({path: '/'})     
+        }
+    },
   },
 }
 </script>
